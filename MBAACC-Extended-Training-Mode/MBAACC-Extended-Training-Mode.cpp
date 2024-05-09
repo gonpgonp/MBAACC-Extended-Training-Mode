@@ -95,6 +95,11 @@ int main(int argc, char* argv[])
     bool bP3Exists = false;
     bool bP4Exists = false;
 
+    Player P1{ 1, dwBaseAddress + 0x155130 };
+    Player P2{ 2, dwBaseAddress + 0x155C2C };
+    Player P3{ 3, dwBaseAddress + 0x156728 };
+    Player P4{ 4, dwBaseAddress + 0x157224 };
+
     int nHitsTillBurst = TOO_HIGH_TO_BURST;
 
     bool bInfGuard = true;
@@ -193,16 +198,18 @@ int main(int argc, char* argv[])
         if (nGameMode != 0)
         {
             SetConsoleCursorPosition(hConsoleHandle, { 0, 7 });
-            std::cout << "Cannot attach to versus mode....                 ";
+            std::cout << "Cannot attach to versus mode....                 " << std::endl;
             //LogInfo("MBAA is in versus mode");
             continue;
         }
         else
         {
             SetConsoleCursorPosition(hConsoleHandle, { 0, 7 });
-            std::cout << "Attached to MBAA.exe                                              ";
+            std::cout << "Attached to MBAA.exe                                              " << std::endl;
             //LogInfo("MBAA is in training mode");
         }
+
+        FrameDisplay(hMBAAHandle, dwBaseAddress, P1, P2, P3, P4);
 
         ReadProcessMemory(hMBAAHandle, (LPVOID)(dwBaseAddress + dwCSSFlag), &nReadResult, 4, 0);
         if (nReadResult == 0)
