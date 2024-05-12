@@ -69,6 +69,25 @@ const DWORD dwBurstCooldown = 0x155DBE;
 const DWORD dwP2RecievedHitstop = 0x155DD0;
 const DWORD dwGameMode = 0x37BF2C; // 0:training
 
+//FrameDisplay Constants
+typedef DWORD ADDRESS; //I think doing this + adXxxxYyyy looks nice
+
+const int BAR_SIZE = 59; //Number of frames displayed at once
+const int BAR_MEMORY_SIZE = 400; //Number of frames stored before overriding (FIFO). For use when scrolling is implemented
+const int BAR_INTERVAL = 40; //Number of frames of no new bars before the bar resets on the next bar
+
+const char REVERSE_INPUT_MAP[10] = { 0, 3, 2, 1, 6, 0, 4, 9, 8, 7 };
+const char CH_MAP[3] = { ' ', 'H', 'L' };
+
+const DWORD dwPlayerStructSize = 0xAFC;
+const ADDRESS adP1Base = 0x155130; //0x155130
+const ADDRESS adP2Base = 0x155130 + dwPlayerStructSize; //0x155C2C
+const ADDRESS adP3Base = 0x155130 + 2 * dwPlayerStructSize; //0x156728
+const ADDRESS adP4Base = 0x155130 + 3 * dwPlayerStructSize; //0x157224
+
+const DWORD dwProjectileStructSize = 0x3CC;
+const ADDRESS adProjectileBase = 0x27BDE8;
+
 // integer representations of raw float values
 // not interested in messing with converting them when a table is good enough
 const std::vector<int> vGuardLevelLookupTable =

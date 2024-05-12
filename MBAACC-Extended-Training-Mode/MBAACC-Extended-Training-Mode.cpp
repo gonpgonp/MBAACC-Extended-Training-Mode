@@ -100,10 +100,10 @@ int main(int argc, char* argv[])
     bool bP3Exists = false;
     bool bP4Exists = false;
 
-    Player P1{ 1, dwBaseAddress + 0x155130 };
-    Player P2{ 2, dwBaseAddress + 0x155C2C };
-    Player P3{ 3, dwBaseAddress + 0x156728 };
-    Player P4{ 4, dwBaseAddress + 0x157224 };
+    Player P1{ 1, dwBaseAddress + adP1Base };
+    Player P2{ 2, dwBaseAddress + adP2Base };
+    Player P3{ 3, dwBaseAddress + adP3Base };
+    Player P4{ 4, dwBaseAddress + adP4Base };
 
     int nHitsTillBurst = TOO_HIGH_TO_BURST;
 
